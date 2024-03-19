@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+
+<div class="body">
+  <!--Slider-->
+  <div
+    class="w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center"
+  >
+    <img src="../../../assets/varios/bg-slider.png" class="slider" />
+    <img src="../../../assets/varios/bg-papaya.jpg" alt="" />
+  </div>
+
+  <!--Contenido interno-->
+  <div
+    class="d-flex flex-column-reverse flex-lg-row justify-content-center align-items-center align-items-lg-start"
+  >
+    <div class="d-flex flex-column align-items-center mb-3">
+      <img src="../../../assets/varios/starcard.jpg" class="mb-3" />
+      <img src="../../../assets/varios/cinefilo-star.jpg" />
+    </div>
+    <div id="contenido-interno" class="px-4" style="width: 640px">
+      <h2 class="text-danger">Cartelera</h2>
+      <!------------->
+      @if (peliculas) { @for (pelicula of peliculas; track pelicula.id) {
+
+      <div class="d-flex mb-4">
+        <div class="px-1">
+          <p class="fw-bold" style="font-size: 14px">{{ pelicula.Titulo }}</p>
+          <p class="" style="font-size: 12px; color: rgb(102, 102, 102)">
+            {{ pelicula.Sinopsis }}
+          </p>
+          <div>
+            <a [routerLink]="['/pelicula', pelicula.id]"
+              ><img src="assets/varios/btn-mas-info.jpg" class="me-1"
+            /></a>
+            <a
+              href="https://www.youtube.com/v/${element.Link}"
+              target="_blank"
+              onclick="return hs.htmlExpand(this, { objectType: 'iframe' } )"
+            >
+              <img src="assets/varios/btn-trailer.jpg" />
+            </a>
+          </div>
+        </div>
+        <img src="assets/pelicula/{{ pelicula.id }}.jpg" />
+      </div>
+      } }
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

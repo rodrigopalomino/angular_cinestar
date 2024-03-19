@@ -1,0 +1,63 @@
+<app-navbar></app-navbar>
+
+<div class="body">
+  <!--Slider-->
+  <div
+    class="w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center"
+  >
+    <img src="assets/varios/bg-slider.png" class="slider" />
+    <img src="assets/varios/bg-papaya.jpg" alt="" />
+  </div>
+
+  <!--Contenido interno-->
+  <div
+    class="d-flex flex-column-reverse flex-lg-row justify-content-center align-items-center align-items-lg-start"
+  >
+    <div class="d-flex flex-column align-items-center mb-3">
+      <img src="assets/varios/starcard.jpg" class="mb-3" />
+      <img src="assets/varios/cinefilo-star.jpg" />
+    </div>
+    <div id="contenido-interno" class="px-4 mb-4" style="width: 640px">
+      <h2 class="text-danger">Pelicula</h2>
+      <!----------->
+      @if (pelicula) {
+      <div class="d-flex mb-3">
+        <div class="me-1">
+          <p class="fw-bold" style="font-size: 13px; color: black">
+            {{ pelicula.Titulo }}
+          </p>
+          <p style="font-size: 12px; color: rgb(102, 102, 102)">
+            {{ pelicula.Sinopsis }}
+          </p>
+          <p class="m-1" style="font-size: 12px; color: rgb(102, 102, 102)">
+            Título Original : {{ pelicula.Titulo }}
+          </p>
+          <p class="m-1" style="font-size: 12px; color: rgb(102, 102, 102)">
+            Estreno : {{ pelicula.FechaEstrenoss }}
+          </p>
+          <p class="m-1" style="font-size: 12px; color: rgb(102, 102, 102)">
+            Género : {{ pelicula.Geneross }}
+          </p>
+          <p class="m-1" style="font-size: 12px; color: rgb(102, 102, 102)">
+            Director : {{ pelicula.Director }}
+          </p>
+          <p class="m-1" style="font-size: 12px; color: rgb(102, 102, 102)">
+            Reparto : {{ pelicula.Reparto }}
+          </p>
+        </div>
+        <img src="assets/pelicula/{{ pelicula.id }}.jpg" />
+      </div>
+      <embed
+        src="https://www.youtube.com/v/{{ pelicula.Link }}"
+        type="application/x-shockwave-flash"
+        allowscriptaccess="always"
+        allowfullscreen="true"
+        height="400"
+        class="w-100"
+      />
+      }
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

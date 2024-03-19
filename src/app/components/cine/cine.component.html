@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+
+<div class="body">
+  <!--Slider-->
+  <div
+    class="w-100 d-flex flex-column flex-lg-row justify-content-center align-items-center"
+  >
+    <img src="../../../assets/varios/bg-slider.png" class="slider" />
+    <img src="../../../assets/varios/bg-papaya.jpg" alt="" />
+  </div>
+
+  <!--Contenido interno-->
+  <div
+    class="d-flex flex-column-reverse flex-lg-row justify-content-center align-items-center mt-3"
+  >
+    <div class="d-flex flex-column align-items-center mb-3">
+      <img src="../../../assets/varios/starcard.jpg" class="mb-3" />
+      <img src="../../../assets/varios/cinefilo-star.jpg" />
+    </div>
+    <div id="contenido-interno" class="px-4 mb-4" style="width: 640px">
+      @if (cine) {
+      <h1 class="text-danger">{{ cine.RazonSocial }}</h1>
+
+      <div class="bg-white" style="font-size: 12px; color: rgb(102, 102, 102)">
+        <p class="m-0">{{ cine.Direccion }} - {{ cine.Detalle }}</p>
+        <p class="">Teléfono: {{ cine.Telefonos }} anexo 865</p>
+
+        @if (tarifas) { @for (tarifa of tarifas; track tarifa.DiasSemana) {
+        <p class="m-0">{{ tarifa.DiasSemana }} {{ tarifa.Precio }}</p>
+        } }
+
+        <p class="mt-2">
+          A partir del 1ro de julio de 2016, Cinestar Multicines realizará el
+          cobro de la comisión de S/. 1.00 adicional al tarifario vigente, a los
+          usuarios que compren sus entradas por el aplicativo de Cine Papaya
+          para Cine Star Comas, Excelsior, Las Américas, Benavides, Breña, San
+          Juan, UNI, Aviación, Sur, Porteño, Tumbes y Tacna.
+        </p>
+        <p style="font-size: 13px; color: black">
+          Los horarios de cada función están sujetos a cambios sin previo aviso.
+        </p>
+        <p class="bg-dark m-0" style="color: white">Peliculas Horarios</p>
+        @if (peliculas) { @for (pelicula of peliculas; track pelicula.Titulo) {
+        <p class="m-0">{{ pelicula.Titulo }} : {{ pelicula.Horarios }}</p>
+        } }
+        <div class="d-flex">
+          <img src="assets/cine/{{ cine.id }}.3.jpg" alt="" />
+          <p class="" style="font-size: 16px; color: black">
+            Precios de los juegos: desde S/1.00 en todos los Cine Star. Horario
+            de atención de juegos es de 12:00 m hasta las 10:30 pm. Visitános y
+            diviértete con nosotros. CINESTAR, siempre pensando en tí
+          </p>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
